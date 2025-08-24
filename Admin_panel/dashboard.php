@@ -22,7 +22,7 @@
 
         <section class="dashboard">
             <div class="heading">
-                <img src="">
+                <img src="../image/ice.png">
             </div>
 
             <div class="box-container">
@@ -31,6 +31,7 @@
                     <!-- <p>php kallk - name ek</p> -->
                      <a href="update.php" class="btn">Update Profile</a>
                 </div>
+
                 <div class="box">
                     <!-- <?php ?>   php kallak tynw box ekt profile load krgnn -->
                      <!-- messages -->
@@ -111,5 +112,10 @@
         </section>
      </div>
      </div>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+     <?php ?>
+     
+     <!-- custom js link -->
+     <script src="../js/Admin_script.js"></script>
 </body>
 </html>
