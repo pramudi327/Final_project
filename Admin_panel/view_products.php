@@ -15,11 +15,11 @@
     <!-- boxicons cdn link -->
      <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
-<body>
+<body class="view-product-page">
    
     <div class="main-container">
         <?php include '../components/Admin_header.php'; ?>
-        <div class="show-post">
+        <section class="show-post">
             <div class="heading">
                 <h1>Your Products</h1>
                 <img src="../image/ice.png">
@@ -54,8 +54,12 @@
                 </form>
                 <?php ?>
             </div>
+        </section>
  
         </div>
-       <!-- php kallk tynw -->
+         <?php include '../components/alert.php';  ?>
+             <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+         <script src="../js/Admin_script.js"></script>
+
 </body>
 </html>

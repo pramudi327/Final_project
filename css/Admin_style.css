@@ -35,7 +35,7 @@ body{
    background-repeat: no-repeat;
 
 }
-.dashboard-page .product-page{
+.dashboard-page {
     background-image: url('../image/db.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -45,6 +45,15 @@ body{
     width: 120%;
 }
 .add-product-page{
+    background-image: url('../image/db.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 120%;
+}
+.view-product-page{
     background-image: url('../image/db.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -217,6 +226,44 @@ section,
     gap: 2rem;
 }
 
+.form-container form .input-field{
+    margin-bottom: 1.5rem;
+}
+
+.form-container form .input-field p{
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+    color: var(--main-color);
+    font-weight: 500;
+}
+
+.form-container form select.box{
+    background-color: var(--white-alpha-25);
+    border: 2px solid var(--white-alpha-40);
+    backdrop-filter: var(--backdrop-filter);
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    border-radius: .5rem;
+    margin: .5rem;
+    font-size: 1.4rem;
+    padding: 1.5rem;
+    min-height: 60px;
+    cursor: pointer;
+    color: var(--main-color);
+}
+
+.form-container form select.box option{
+    background-color: var(--white-alpha-25);
+    color: var(--main-color);
+    padding: 1rem;
+    font-size: 1.3rem;
+}
+
+.form-container form select.box:focus{
+    border-color: var(--pink-color);
+    outline: none;
+}
+
 .form-container form .flex .col{
     flex: 1 1 100%;
 }
@@ -226,11 +273,11 @@ section,
 }
 
 .form-container.login{
-    width: 50rem;
+    width: 55rem;
 }
 
 .form-container.register{
-    width: 60rem;
+    width: 65rem;
 }
 
 .form-container .register.img-box{
@@ -285,7 +332,9 @@ section,
     border-radius: .5rem;
     margin: .5rem;
     font-size: 1.3rem;
-    padding: 1rem;
+    padding: 1.5rem;
+    min-height: 60px;
+    font-size: 1.4rem;
 }
 .form-container form textarea{
     height: 20rem;
@@ -306,6 +355,7 @@ section,
     width: 50%;
     padding: 1rem;
 }
+
 
 /* hedaer section */
 .header{
@@ -362,7 +412,7 @@ header .right{
 
     }
 }
-.profile-detail .active{
+.profile-detail.active{
     display: inline-block;
 }
 .profile-detail p{
@@ -387,9 +437,9 @@ header .right{
 }
 .main-container,
 .dashboard{
-    margin-left: 200px;
+    margin-left: 300px;
     padding: 1.5rem;
-    width: calc(100% - 200px);
+    width: calc(100% - 300px);
 }
 
 .main-container h5{
@@ -625,11 +675,28 @@ header .right{
     top: 5%;
     font-weight: bolder;
     background-color: var(--pink-color);
-    
 }
+.show-post .box-container .box .content .title {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.show-post .box-container .box .posts-content{
+    font-size: 1.3rem;
+    line-height: 1.5;
+    padding: 1rem;
+}
+.show-post .box-container .box .btn{
+    margin: .2rem;
+    padding: 2rem 1.5rem;
+    width: 30%;
+    text-align: center;
+}
+.show-post .box-container .box button{
+    width: 30%;
 
-
-
+}
 
 
 /* media screen */

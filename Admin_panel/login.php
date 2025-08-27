@@ -1,3 +1,40 @@
+<?php 
+include '../components/connect.php';
+
+$success_msg = [];
+$warning_msg = [];
+$error_msg = [];
+
+        
+// shop list load
+$shopQuery = $conn->prepare("SELECT Shop_id, Shop_name FROM shop");
+$shopQuery->execute();
+$shops = $shopQuery->fetchAll(PDO::FETCH_ASSOC);
+
+
+if(isset($_POST['submit'])){
+    
+     $email = $_POST['email'];
+     $email = filter_var($email, FILTER_SANITIZE_STRING);
+
+     $pass = $_POST['password'];
+     $pass = filter_var($pass, FILTER_SANITIZE_STRING);
+
+     //prepare thr sql statment to check matching credential
+     $select_seller = $conn->prepare("SELECT * FROM `sellers` WHERE email = ? AND password = ?");
+     $select_seller->execute([$email,$pass]); 
+
+    $row = $select_seller->fetch(PDO::FETCH_ASSOC);
+
+    if($select_seller->rowCount() > 0){
+        setcookie('seller_id',$row['Seller_id'],time() + 60 + 60 * 24 * 30 , '/');
+        header('location:dashboard.php');
+        exit();
+    }else{
+        $warning_msg[] = 'Incorrect email or password!';
+    }
+}   
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,8 +49,10 @@
 <body>
     <div class="login-page">
    <div class="form-container">
-    <form action="register" method="post" entype="multipart/form-data" class="login">
+    <form action="" method="post" enctype="multipart/form-data" class="login">
         <h2>Login Now</h2>
+                
+
                 <div class="input-field">
                     <p>Your email<span>*</span></p>
                     <input type="text" name="email" placeholder="Enter your email" maxlength="30" required class="box">
@@ -24,13 +63,19 @@
                     <input type="password" name="password" placeholder="Enter your password" maxlength="30" required class="box">
                 </div>
 
-    <p class="link"></p>Do not have an account? <a href="register.php">Register Now</a></p>
+               
+
+    <p class="link">Do not have an account? <a href="register.php">Register Now</a></p>
     <input type="submit" name="submit" value="Login Now" class="btn">
 
     </form>
     </div>
    </div>
    </div>
+        
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+           <?php include '../components/alert.php';  ?>
+
 
 </body>
 </html>
