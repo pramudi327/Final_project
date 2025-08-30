@@ -5,12 +5,6 @@ $success_msg = [];
 $warning_msg = [];
 $error_msg = [];
 
-        
-// shop list load
-$shopQuery = $conn->prepare("SELECT Shop_id, Shop_name FROM shop");
-$shopQuery->execute();
-$shops = $shopQuery->fetchAll(PDO::FETCH_ASSOC);
-
 
 if(isset($_POST['submit'])){
     
@@ -24,10 +18,11 @@ if(isset($_POST['submit'])){
      $select_seller = $conn->prepare("SELECT * FROM `sellers` WHERE email = ? AND password = ?");
      $select_seller->execute([$email,$pass]); 
 
-    $row = $select_seller->fetch(PDO::FETCH_ASSOC);
 
     if($select_seller->rowCount() > 0){
-        setcookie('seller_id',$row['Seller_id'],time() + 60 + 60 * 24 * 30 , '/');
+        $row = $select_seller->fetch(PDO::FETCH_ASSOC);
+
+        setcookie('seller_id',$row['Seller_id'],time()+60*60*24*30, '/');
         header('location:dashboard.php');
         exit();
     }else{

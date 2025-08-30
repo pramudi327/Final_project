@@ -2,8 +2,8 @@
 include '../components/connect.php';
 
 // check if seller_id cookie is set
-if(isset($_COOKIE['Seller_id'])){
-    $Seller_id = $_COOKIE['Seller_id'];
+if(isset($_COOKIE['seller_id'])){
+    $Seller_id = $_COOKIE['seller_id'];
 }else{
     $Seller_id = ''; 
 }
@@ -16,7 +16,9 @@ if(!empty($Seller_id)){
     if($select_profile->rowCount() > 0){
         $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
     }
-}
+
+    } 
+
 ?>
 <header>
     <div class="logo">
@@ -28,7 +30,9 @@ if(!empty($Seller_id)){
     </div>
     
     <div class="profile-detail">
-        <?php if($fetch_profile){ ?>
+        <?php 
+            if(!empty($fetch_profile)){
+         ?>
             <div class="profile">
                 <img src="../uploaded_files/<?= htmlspecialchars($fetch_profile['image']); ?>" class="logo-img" width="80">
                 <p><?= htmlspecialchars($fetch_profile['name']); ?></p>
@@ -42,17 +46,16 @@ if(!empty($Seller_id)){
 </header>
 
 <!-- Sidebar -->
-<div class="sidebar-container">
+<div class="side-container">
     <div class="sidebar">
-        <?php if($fetch_profile){ ?>
+        <?php 
+        if(!empty($fetch_profile)){
+        ?>
             <div class="profile">
-                <img src="../uploaded_files/<?= htmlspecialchars($fetch_profile['image']); ?>" class="logo-img" width="80">
-                <p><?= htmlspecialchars($fetch_profile['name']); ?></p>
+                <img src="../uploaded_files/<?=$fetch_profile['image']; ?>" class="logo-img" width="80">
+                <p><?=$fetch_profile['name']; ?></p>
             </div>
         <?php } ?>
-
-
-        
 
     <h5>Menu</h5>
     <ul>

@@ -1,21 +1,24 @@
 <?php 
-    $db_name = 'mysql:host=localhost; dbname=mydb';
+try {
+    $db_name = 'mysql:host=localhost;dbname=mydb';
     $user_name = 'root';
     $user_password = '2023415';
     $conn = new PDO($db_name, $user_name, $user_password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    if(!$conn){
-        echo 'not connected';
-    }
+} catch (PDOException $e) {
+    die("Connection failed: " . $e->getMessage());
+}
 
+if (!function_exists('unique_id')) {
     function unique_id() {
         $chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $charLength = strLen($chars);
+        $charLength = strlen($chars);
         $randomString = '';
-        for ($i=0; $i < 20; $i++){
-            $randomString .= $chars[mt_rand(0,$charLength -1)];
+        for ($i = 0; $i < 20; $i++) {
+            $randomString .= $chars[mt_rand(0, $charLength - 1)];
         }
         return $randomString;
-
     }
+}
 ?>
