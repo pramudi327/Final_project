@@ -22,7 +22,7 @@ if(isset($_POST['submit'])){
     if($select_seller->rowCount() > 0){
         $row = $select_seller->fetch(PDO::FETCH_ASSOC);
 
-        setcookie('seller_id',$row['Seller_id'],time()+60*60*24*30, '/');
+        setcookie('Seller_id',$row['Seller_id'],time()+60*60*24*30, '/');
         header('location:dashboard.php');
         exit();
     }else{

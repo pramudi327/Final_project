@@ -1,16 +1,16 @@
 <?php 
-include '../components/connect.php';
+// include '../components/connect.php';
 
-// seller cookie check karanawa
-// if(isset($_COOKIE['seller_id'])){
-//   $Seller_id = $_COOKIE['seller_id'];
+// // seller cookie check karanawa
+// if(isset($_COOKIE['Seller_id'])){
+//   $Seller_id = $_COOKIE['Seller_id'];
 // }else{
   
 //   header('location:login.php');
 //   exit(); // header ekata passe code run wenna bari wenna
 // }
 
-// seller profile ganna query ekak run wenna
+// // seller profile ganna query ekak run wenna
 // $fetch_profile = null;
 // if(!empty($Seller_id)){
 //     $select_profile = $conn->prepare("SELECT * FROM `sellers` WHERE Seller_id = ?");
