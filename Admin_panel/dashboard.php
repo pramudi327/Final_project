@@ -48,18 +48,18 @@
 
                 <div class="box">
                     <?php 
-                    $select_message = $conn->prepare("SELECT * FROM `message` WHERE Seller_id = ?");
+                    $select_message = $conn->prepare("SELECT * FROM `message` WHERE sellers_Seller_id = ?");
                     $select_message->execute([$Seller_id]);
                     $number_of_msg = $select_message->rowCount();
                     ?>
                       <h3><?= $number_of_msg; ?></h3>
                       <p>Unread message</p>
-                      <a href="admin_message.php" class="btn">See message</a>
+                      <a href="admin_message.php" class="btn">See message</a>s
                 </div>
 
                 <div class="box">
                      <?php
-                     $select_product = $conn->prepare("SELECT * FROM `product` WHERE Seller_id = ?");
+                     $select_product = $conn->prepare("SELECT * FROM `product` WHERE sellers_Seller_id = ?");
                      $select_product->execute([$Seller_id]);
                      $number_of_product = $select_product->rowCount();
                       ?>   
@@ -70,9 +70,9 @@
 
                 <div class="box">
                      <?php
-                    //  $select_active_products = $conn->prepare("SELECT * FROM `products` WHERE Seller_id = ? AND status = ?");
-                    //  $select_active_products->execute([$Seller_id, 'active']);
-                    //  $number_of_active_products = $select_active_products->rowCount();
+                     $select_active_products = $conn->prepare("SELECT * FROM `product` WHERE sellers_Seller_id = ? AND status = ?");
+                     $select_active_products->execute([$Seller_id, 'active']);
+                     $number_of_active_products = $select_active_products->rowCount();
                      ?>   
                       <h3><?= $number_of_active_products; ?></h3>
                       <p>Active products</p>
@@ -81,9 +81,9 @@
 
                 <div class="box">
                      <?php 
-                    //  $select_deactive_products = $conn->prepare("SELECT * FROM `products` WHERE Seller_id = ? AND status = ?");
-                    //  $select_deactive_products->execute([$Seller_id, 'deactive']);
-                    //  $number_of_deactive_products = $select_deactive_products->rowCount();
+                     $select_deactive_products = $conn->prepare("SELECT * FROM `product` WHERE sellers_Seller_id = ? AND status = ?");
+                     $select_deactive_products->execute([$Seller_id, 'deactive']);
+                     $number_of_deactive_products = $select_deactive_products->rowCount();
                      ?>   
                       <h3><?= $number_of_deactive_products; ?></h3>
                       <p>Deactive products</p>
@@ -92,9 +92,9 @@
 
                  <div class="box">
                      <?php 
-                    //  $select_users = $conn->prepare("SELECT * FROM `users`");
-                    //  $select_users->execute();
-                    //  $number_of_users = $select_users->rowCount();
+                     $select_users = $conn->prepare("SELECT * FROM `users`");
+                     $select_users->execute();
+                     $number_of_users = $select_users->rowCount();
                      ?>   
                       <h3><?= $number_of_users; ?></h3>
                       <p>Users</p>
@@ -103,9 +103,9 @@
 
                  <div class="box">
                      <?php 
-                    //  $select_sellers = $conn->prepare("SELECT * FROM `sellers`");
-                    //  $select_sellers->execute();
-                    //  $number_of_sellers = $select_sellers->rowCount();
+                     $select_sellers = $conn->prepare("SELECT * FROM `sellers`");
+                     $select_sellers->execute();
+                     $number_of_sellers = $select_sellers->rowCount();
                      ?>   
                       <h3><?= $number_of_sellers; ?></h3>
                       <p>Sellers</p>
@@ -114,9 +114,9 @@
 
                 <div class="box">
                      <?php 
-                    //  $select_orders = $conn->prepare("SELECT * FROM `orders` WHERE Seller_id = ?");
-                    //  $select_orders->execute([$Seller_id]);
-                    //  $number_of_orders = $select_orders->rowCount();
+                     $select_orders = $conn->prepare("SELECT * FROM `order` WHERE sellers_Seller_id = ?");
+                     $select_orders->execute([$Seller_id]);
+                     $number_of_orders = $select_orders->rowCount();
                      ?>   
                       <h3><?= $number_of_orders; ?></h3>
                       <p>Orders placed</p>
@@ -125,9 +125,9 @@
 
                 <div class="box">
                      <?php 
-                    //  $select_confirm_orders = $conn->prepare("SELECT * FROM `orders` WHERE Seller_id = ? AND status = ?");
-                    //  $select_confirm_orders->execute([$Seller_id, 'in progress']);
-                    //  $number_of_confirm_orders = $select_confirm_orders->rowCount();
+                     $select_confirm_orders = $conn->prepare("SELECT * FROM `order` WHERE sellers_Seller_id = ? AND status = ?");
+                     $select_confirm_orders->execute([$Seller_id, 'in progress']);
+                     $number_of_confirm_orders = $select_confirm_orders->rowCount();
                      ?>   
                       <h3><?= $number_of_confirm_orders; ?></h3>
                       <p>Confirm placed</p>
@@ -136,9 +136,9 @@
 
                 <div class="box">
                      <?php 
-                    //  $select_canceled_orders = $conn->prepare("SELECT * FROM `orders` WHERE Seller_id = ? AND status = ?");
-                    //  $select_canceled_orders->execute([$Seller_id, 'canceled']);
-                    //  $number_of_canceled_orders = $select_canceled_orders->rowCount();
+                     $select_canceled_orders = $conn->prepare("SELECT * FROM `order` WHERE sellers_Seller_id = ? AND status = ?");
+                     $select_canceled_orders->execute([$Seller_id, 'canceled']);
+                     $number_of_canceled_orders = $select_canceled_orders->rowCount();
                      ?>   
                       <h3><?= $number_of_canceled_orders; ?></h3>
                       <p>Canceled placed</p>

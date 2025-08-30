@@ -1,5 +1,14 @@
-<!-- php kallk coonect.php  -->
- <!-- seller id load krgnn ek -->
+<?php
+include '../components/connect.php'; 
+
+//  if(isset($_COOKIE['Seller_id'])){
+//   $Seller_id = $_COOKIE['Seller_id'];
+// }else{
+  
+//   header('location:login.php');
+//   exit();
+// }
+?>
 
  <!-- add product to databse -->
   <!-- add product to database as draft -->
@@ -58,7 +67,7 @@
     
    
 
-    <?php ?>
+    <?php include '../components/alert.php';  ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
      
      
